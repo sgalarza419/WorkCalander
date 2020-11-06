@@ -43,14 +43,14 @@ $(document).ready(function () {
 
     saveButton.click(function () {
         noteTime = $(this).parent().attr("id");
-        note = $(this).siblings().val(dailyInput);
-        // console.log(noteTime);
+        note = $(this).prev().val();
+        console.log(noteTime);
         console.log(note);
 
-        // if (noteTime && note) {
-        //     localStorage.setItem(noteTime, note);
-        //     location.reload();
-        // }
+        if (noteTime && note) {
+            localStorage.setItem(noteTime, note);
+            location.reload();
+        }
     });
 
     // savedNote = $("textarea");

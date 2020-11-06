@@ -28,26 +28,30 @@ $(document).ready(function () {
     timeZone();
 });
 
-dailyInput = $("textarea");
+dailyInput = $("textarea"); //variable is an array
+saveButton = $("button") // variable is an array
+timeRow = $(".row"); // variable is an array
+
+// for (i = 0; i < 10 ; i++);
+// localStorage.setItem(timeRow[i], dailyInput[i]);
 // console.log(dailyInput);
-saveButton = $("button");
 // console.log(saveButton);
-
-
-timeRow = $(".row");
 // console.log(timeRow);
 
+// noteTime = timeRow.attr("id");
+
+
+
 saveButton.click(function () {
-
-    note = dailyInput.val();
+    noteTime = $(this).parent().attr("id");
+    note = $(this).siblings(dailyInput.val());
+    console.log(noteTime);
     console.log(note);
-//     noteTime = timeRow.attr("id");
-//     console.log(noteTime);
 
-//     if (noteTime && note) {
-//         localStorage.setItem(noteTime, note);
-//         location.reload();
-//     }
+    // if (noteTime && note) {
+    //     localStorage.setItem(noteTime, note);
+    //     location.reload();
+    // }
 });
 
 // savedNote = $("textarea");

@@ -42,61 +42,30 @@ $(document).ready(function () {
 
 
     saveButton.click(function () {
+
+
         noteTime = $(this).parent().attr("id");
         note = $(this).prev().val();
-        console.log(noteTime);
-        console.log(note);
+        // console.log(noteTime);
+        // console.log(note);
 
         if (noteTime && note) {
             localStorage.setItem(noteTime, note);
-            location.reload();
+            note = dailyInput.text();
+            // location.reload();
         }
     });
 
-    // savedNote = $("textarea");
-    // for (i = 0; i < localStorage.length; i++) {
-    //     value = localStorage.value(i);
 
-    //     savedNote.innerHTML += '${value}<br />';
-    // }
+    for (i = 0; i < localStorage.length; i++) {
+        key = localStorage.key(i);
+        value = localStorage.getItem(key);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    var timeSlot = ["", "", "", "", "", "", "", ""];
-
-    function loadData() {
-        //grab timeslot data from local storage ‘get item’
-        //loop thru timeSlot on screen
-        //for each row on the screen check timeslot array for non empty string
-        //set up eventTime, get the match < 9 ‘+=12’
-        //calculate timeSlot index = to match - 9
-        //if non empty string set textarea for row to string in the arrow pointed by index
-        //
-    }
-    //function save data
-    function saveData() {
-        //event handled when you click save button
-        //event time
-        //convert to military time ‘+12’
-        //set index = military time - 9
-        //save incoming text in array
-        //save array in local storage
+        $("textarea").each(function () {
+            if ($(this).attr("id") == key) {
+                $(this).text(value);
+                console.log(value);
+            };
+        })
     }
 });
